@@ -11,6 +11,7 @@
             break;
         case '/projet_chocoblast/addUser':
             include './App/Vue/viewAddUser.php';
+            break;
         default:
             include './App/Vue/error.php';
             break;
