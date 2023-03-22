@@ -8,5 +8,6 @@
 </head>
 <body>
     <h1>Erreur</h1>
+    <?php phpinfo(); ?>
 </body>
 </html>
