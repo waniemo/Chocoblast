@@ -25,15 +25,19 @@
             return $this->nom_roles;
         }
 
+        public function setIdRoles($id):void{
+            $this->id_roles = $id;
+        }
+
         public function setNomRoles($name):void{
             $this->nom_roles = $name;
         }
 
-        public function addRoles(){
+        public function addRoles():void{
             try{
                 $role = $this->nom_roles;
 
-                $req = $this->connexion()->prepare('INSERT INTO roles (nom_roles)VALUES (?)');
+                $req = $this->connexion()->prepare('INSERT INTO roles (nom_roles) VALUES (?)');
 
                 $req->bindParam(1,$role, \PDO::PARAM_STR);
 

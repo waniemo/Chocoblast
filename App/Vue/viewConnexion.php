@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Public/Style/main.css">
     <script src="./Public/Script/script.js"></script>
-    <title>Ajouter rôles</title>
+    <title>Connexion</title>
 </head>
 <body>
     <?php include './App/Vue/viewMenu.php' ?>
+    <h1>Connexion</h1>
     <div class="form">
-    <h1>Ajouter un rôle</h1>
-    <form action="" method="post">
-    <label for="nom_roles">Saisir votre role :</label>
-        <input type="text" name="nom_roles">
-        <input type="submit" value="Ajouter" name="submit">
-    </form>
-    <div id="error"><?php echo $message; ?></div>
+        <form action="" method="POST">
+            <input type="email" name="mail_utilisateur">
+            <input type="password" name="password_utilisateur">
+            <input type="submit" name="submit" value="Se connecter">
+        </form>
+        <div id="error"><?php echo $message; ?></div>
     </div>
 </body>
 </html>

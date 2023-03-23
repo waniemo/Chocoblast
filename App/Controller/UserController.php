@@ -35,6 +35,37 @@
 
             include './App/Vue/viewAddUser.php';
         }
+
+        public function connexionUser(){
+            $message = "";
+            if(isset($_POST['submit'])){
+                $mail = Functions::cleanInput($_POST['mail_utilisateur']);
+                $password = Functions::cleanInput($_POST['password_utilisateur']);
+
+                if(!empty($mail) AND !empty($password)){
+                    $this->setMailUtilisateur($mail);
+                    $this->setPasswordUtilisateur($password);
+                    
+                    if($this->getUserByMail()){
+                        $data = $this->getUserByMail();
+                        if(password_verify($password, $data[0]->password_utilisateur)){
+                            $_SESSION['connected'] = true;
+                            $_SESSION['mail'] = $data[0]->mail_utilisateur;
+                            $_SESSION['id'] = $data[0]->id_utilisateur; 
+                            $_SESSION['nom'] = $data[0]->nom_utilisateur; 
+                            $_SESSION['prenom'] = $data[0]->prenom_utilisateur;
+                            $message = "Vous êtes connecté";
+                        } else{
+                            $message = "Le mail ou le mot de passe est incorrect";
+                        }                                      
+                    }
+                } else{
+                    $message = "Veuillez remplir les champs du formulaire";
+                }
+            }
+
+            include './App/Vue/viewConnexion.php';
+        }
     }
 
 ?>

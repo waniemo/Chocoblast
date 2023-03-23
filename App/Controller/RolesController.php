@@ -13,11 +13,11 @@
                     $this->setNomRoles($roles);
 
                     if($this->getRoleByName()){
-                        $message = "Les informations sont incorrectes";
+                        $message = "Ce rôle existe déja";
                     } else{
                         
                         $this->addRoles();
-                        $message = "Le compte a été ajouté en BDD";
+                        $message = "Le rôle a été ajouté en BDD";
                     }
                 } else{
                     $message = "Veuillez remplir tous les champs du formulaire";

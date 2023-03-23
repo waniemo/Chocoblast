@@ -1,13 +1,15 @@
 <?php
+    // Demarrage de la session
+    session_start();
 
-use App\Controller\RolesController;
-use App\Controller\UserController;
+    use App\Controller\RolesController;
+    use App\Controller\UserController;
     include './App/Utils/BddConnect.php';
     include './App/Utils/Functions.php';
-    include './App/Model/Utilisateur.php';
-    include './App/Controller/UserController.php';
     include './App/Model/Roles.php';
     include './App/Controller/RolesController.php';
+    include './App/Model/Utilisateur.php';
+    include './App/Controller/UserController.php';
 
     //Analyse de l'URL avec parse_url() et retourne ses composants
     $url = parse_url($_SERVER['REQUEST_URI']);
@@ -27,8 +29,11 @@ use App\Controller\UserController;
         case '/projet_chocoblast/userAdd':
             $userController->insertUser();
             break;
-        case '/projet_chocoblast/roleAdd':
+        case '/projet_chocoblast/rolesAdd':
             $roleController->insertRoles();
+            break;
+        case '/projet_chocoblast/connexion':
+            $userController->connexionUser();
             break;
         default:
             include './App/Vue/error.php';
