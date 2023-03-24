@@ -11,7 +11,7 @@
 <body>
     <?php include './App/Vue/viewMenu.php' ?>
     <div class="form">
-    <h1>Ajouter un utilisateur</h1>
+    <h1>Inscription</h1>
     <form action="" method="post">
         <label for="nom_utilisateur">Saisir votre nom :</label>
         <input type="text" name="nom_utilisateur">

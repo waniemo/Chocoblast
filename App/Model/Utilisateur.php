@@ -66,6 +66,10 @@
         public function setPasswordUtilisateur($pwd):void{
             $this->password_utilisateur = $pwd;
         }
+        
+        public function setIdUtilisateur($id):void{
+            $this->id_utilisateur = $id;
+        }
 
         /*-----------------------------
                     Method
@@ -109,6 +113,22 @@
             catch(\Exception $e){
                 die('Erreur : '.$e->getMessage());
             }
+        }
+
+        public function getUserAll(){
+            try{
+                $req = $this->connexion()->prepare('SELECT id_utilisateur, nom_utilisateur, prenom_utilisateur, mail_utilisateur, image_utilisateur FROM utilisateur');
+                $req->execute();
+                $data = $req->fetchAll(\PDO::FETCH_OBJ);
+                return $data;
+            }
+            catch(\Exception $e){
+                die('Erreur : '.$e->getMessage());
+            }
+        }
+
+        public function __toString(){
+            return $this->prenom_utilisateur;
         }
         
     }

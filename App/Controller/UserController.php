@@ -27,7 +27,7 @@
                         $this->addUser();
                     }
 
-                    $message = "Le compte : ".$mail ."a été ajouté en BDD";
+                    $message = "Le compte : ".$mail ." a été ajouté en BDD";
                 } else{
                     $message = "Veuillez remplir tous les champs du formulaire";
                 }
@@ -65,6 +65,11 @@
             }
 
             include './App/Vue/viewConnexion.php';
+        }
+
+        public function deconnexionUser(){
+            session_destroy();
+            header('Location: ./');
         }
     }
 
