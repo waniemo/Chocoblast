@@ -104,11 +104,11 @@
             }
         }
 
-        public function getChocoblastAll(){
+        public function getAllChocoblast(){
             try{
                 $req = $this->connexion()->prepare('SELECT id_chocoblast, slogan_chocoblast, date_chocoblast, nom_auteur, prenom_auteur, nom_cible, prenom_cible FROM chocoblast INNER JOIN vwCible ON cible_chocoblast = vwcible.id_cible INNER JOIN vwAuteur ON auteur_chocoblast = vwauteur.id_auteur');
                 $req->execute();
-                $data = $req->fetchAll();
+                $data = $req->fetchAll(\PDO::FETCH_OBJ);
                 return $data;
             }
             catch(\Exception $e){

@@ -9,6 +9,8 @@
         <li><a href="./">Home</a></li>
         <li><a href="./rolesAdd">Ajouter un rôle</a></li>
         <li><a href="./chocoblastAdd">Ajouter un chocoblast</a></li>
+        <li><a href="./commentaireAdd">Ajouter un commentaire</a></li>
+        <li><a href="./chocoblastAll">Afficher les chocoblasts</a></li>
         <li><a href="./deconnexion">Déconnexion</a></li>
     </ul>
 </div>

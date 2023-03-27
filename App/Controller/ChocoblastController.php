@@ -36,9 +36,20 @@
             }
         }
 
-        public function showChocoblast(){
-            $this->getChocoblastAll();
-            include './App/Vue/showAllChocoblast.php';
+        public function showAllChocoblast(){
+            $msg = "";
+            $chocos = $this->getAllChocoblast();
+            //Test si il existe des chocoblats
+            if(!$chocos){
+                $msg = "Il n'y à aucun chocoblast dans la BDD";
+                echo '<script>
+                    setTimeout(()=>{
+                        modal.style.display = "block";
+                    }, 500);
+                </script>';  
+            }
+            //Importer la vue
+            include './App/Vue/viewAllChocoblast.php';
         }
     }
 ?>

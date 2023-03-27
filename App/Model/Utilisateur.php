@@ -81,15 +81,17 @@
                 $prenom = $this->prenom_utilisateur;
                 $mail = $this->mail_utilisateur;
                 $password = $this->password_utilisateur;
+                $image = $this->image_utilisateur;
                 $id = $this->roles->getIdRoles();
 
-                $req = $this->connexion()->prepare('INSERT INTO utilisateur(nom_utilisateur, prenom_utilisateur, mail_utilisateur, password_utilisateur, id_roles) VALUES (?,?,?,?,?)');
+                $req = $this->connexion()->prepare('INSERT INTO utilisateur(nom_utilisateur, prenom_utilisateur, mail_utilisateur, password_utilisateur, id_roles, image_utilisateur) VALUES (?,?,?,?,?,?)');
 
                 $req->bindParam(1,$nom, \PDO::PARAM_STR);
                 $req->bindParam(2,$prenom, \PDO::PARAM_STR);
                 $req->bindParam(3,$mail, \PDO::PARAM_STR);
                 $req->bindParam(4,$password, \PDO::PARAM_STR);
                 $req->bindParam(5,$id, \PDO::PARAM_INT);
+                $req->bindParam(6,$image, \PDO::PARAM_STR);
 
                 $req->execute();
             } 
